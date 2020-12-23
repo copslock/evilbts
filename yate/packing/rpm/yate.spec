@@ -34,7 +34,7 @@
 %endif
 
 %if "%{revision}" == "svn"
-%define revision 6107svn
+%define revision svn
 %endif
 
 %if "%{dist}" == ""

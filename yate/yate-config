@@ -50,7 +50,7 @@ while [ "$#" != 0 ]; do
 	    echo "devel1"
 	    ;;
 	--revision)
-	    echo "6107"
+	    echo ""
 	    ;;
 	--cflags)
 	    echo "$s1"
@@ -95,13 +95,13 @@ while [ "$#" != 0 ]; do
 	    echo "$shrdir/scripts"
 	    ;;
 	--archlib)
-	    echo "lib/x86_64-linux-gnu"
+	    echo "lib"
 	    ;;
 	--param=KDOC_BIN)
 	    echo ""
 	    ;;
 	--param=DOXYGEN_BIN)
-	    echo "/usr/bin/doxygen"
+	    echo ""
 	    ;;
 	--param=SONAME_OPT)
 	    echo "-shared -Wl,-soname="
@@ -110,7 +110,7 @@ while [ "$#" != 0 ]; do
 	    echo "install -D"
 	    ;;
 	--param=INSTALL_L)
-	    echo "-m 0644"
+	    echo ""
 	    ;;
 	--param=RTTI_OPT)
 	    echo ""
@@ -119,13 +119,13 @@ while [ "$#" != 0 ]; do
 	    echo "none"
 	    ;;
 	--param=COREDUMPER_LIB)
-	    echo "-L/usr -lcoredumper"
+	    echo ""
 	    ;;
 	--param=COREDUMPER_INC)
-	    echo "-I/usr"
+	    echo ""
 	    ;;
 	--param=HAVE_COREDUMPER)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=HAVE_MALLINFO)
 	    echo "yes"
@@ -134,55 +134,55 @@ while [ "$#" != 0 ]; do
 	    echo "no"
 	    ;;
 	--param=QT4_VER)
-	    echo "040806"
+	    echo ""
 	    ;;
 	--param=QT4_MOC)
-	    echo "/usr/bin/moc-qt4"
+	    echo ""
 	    ;;
 	--param=QT4_LIB_NET)
-	    echo "-lQtNetwork"
+	    echo ""
 	    ;;
 	--param=QT4_INC_NET)
-	    echo "-I/usr/include/qt4/QtNetwork"
+	    echo ""
 	    ;;
 	--param=QT4_LIB)
-	    echo "-lQtUiTools -lQtGui -lQtXml -lQtCore "
+	    echo ""
 	    ;;
 	--param=QT4_INC)
-	    echo "-DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtUiTools -I/usr/include/qt4 -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I/usr/include/qt4/QtCore "
+	    echo ""
 	    ;;
 	--param=HAVE_QT4)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=LIBUSB_LIB)
-	    echo "-lusb-1.0"
+	    echo ""
 	    ;;
 	--param=LIBUSB_INC)
-	    echo "-DHAVE_LIBUSB_VER -I/usr/include/libusb-1.0"
+	    echo ""
 	    ;;
 	--param=HAVE_LIBUSB)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=ZLIB_LIB)
-	    echo "-lz"
+	    echo ""
 	    ;;
 	--param=ZLIB_INC)
-	    echo "-I/usr/include"
+	    echo ""
 	    ;;
 	--param=HAVE_ZLIB)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=OPENSSL_VER)
-	    echo "1.0.1f"
+	    echo ""
 	    ;;
 	--param=OPENSSL_LIB)
-	    echo "-lssl -lcrypto "
+	    echo ""
 	    ;;
 	--param=OPENSSL_INC)
 	    echo ""
 	    ;;
 	--param=HAVE_OPENSSL)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=H323_RUN)
 	    echo ""
@@ -224,19 +224,19 @@ while [ "$#" != 0 ]; do
 	    echo "no"
 	    ;;
 	--param=ISAC_INC)
-	    echo "-I/home/evilsocket/Desktop/yate/yate/libs/miniwebrtc/audio/coding_isac/main"
+	    echo "-I/evilbts/yate/libs/miniwebrtc/audio/coding_isac/main"
 	    ;;
 	--param=HAVE_ISAC)
 	    echo "yes"
 	    ;;
 	--param=ILBCWR_INC)
-	    echo "-I/home/evilsocket/Desktop/yate/yate/libs/miniwebrtc/audio/coding_ilbc"
+	    echo "-I/evilbts/yate/libs/miniwebrtc/audio/coding_ilbc"
 	    ;;
 	--param=HAVE_ILBCWR)
 	    echo "yes"
 	    ;;
 	--param=ILBC_INC)
-	    echo "-I/home/evilsocket/Desktop/yate/yate/libs/ilbc"
+	    echo "-I/evilbts/yate/libs/ilbc"
 	    ;;
 	--param=HAVE_ILBC)
 	    echo "yes"
@@ -245,16 +245,16 @@ while [ "$#" != 0 ]; do
 	    echo "-lgsm"
 	    ;;
 	--param=GSM_INC)
-	    echo "-I/usr/include"
+	    echo ""
 	    ;;
 	--param=HAVE_GSM)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=HAVE_COREAUDIO)
 	    echo "no"
 	    ;;
 	--param=HAVE_ALSA)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=HAVE_SOUNDCARD)
 	    echo "yes"
@@ -281,25 +281,25 @@ while [ "$#" != 0 ]; do
 	    echo "no"
 	    ;;
 	--param=SQLITE_LIB)
-	    echo "-lsqlite3 "
+	    echo ""
 	    ;;
 	--param=SQLITE_INC)
 	    echo ""
 	    ;;
 	--param=HAVE_SQLITE)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=MYSQL_VER)
-	    echo "5.6.28"
+	    echo ""
 	    ;;
 	--param=MYSQL_LIB)
-	    echo "-L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl"
+	    echo ""
 	    ;;
 	--param=MYSQL_INC)
-	    echo "-I/usr/include/mysql -DMYSQL_OPT_RECONNECT=MYSQL_OPT_RECONNECT -DMYSQL_OPT_READ_TIMEOUT=MYSQL_OPT_READ_TIMEOUT -DMYSQL_OPT_WRITE_TIMEOUT=MYSQL_OPT_WRITE_TIMEOUT -DHAVE_MYSQL_SET_CHARSET"
+	    echo ""
 	    ;;
 	--param=HAVE_MYSQL)
-	    echo "yes"
+	    echo "no"
 	    ;;
 	--param=PGSQL_LIB)
 	    echo "-lpq"

@@ -9,37 +9,37 @@ DEBUG :=
 
 YATE_VERSION := 5.5.1
 YATE_RELEASE := devel1
-YATE_REVISION:= 6107
+YATE_REVISION:= 
 
 CC  := gcc -Wall
 CXX := g++ -Wall
-MOC := /usr/bin/moc-qt4
-QT4_INC := -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtUiTools -I/usr/include/qt4 -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I/usr/include/qt4/QtCore 
-QT4_LIB := -lQtUiTools -lQtGui -lQtXml -lQtCore 
-QT4_INC_NET := -I/usr/include/qt4/QtNetwork
-QT4_LIB_NET := -lQtNetwork
+MOC := 
+QT4_INC := 
+QT4_LIB := 
+QT4_INC_NET := 
+QT4_LIB_NET := 
 QT4_STATIC_MODULES :=
 HAVE_PGSQL := no
 PGSQL_INC := 
 PGSQL_LIB := -lpq
-HAVE_MYSQL := yes
-MYSQL_INC := -I/usr/include/mysql -DMYSQL_OPT_RECONNECT=MYSQL_OPT_RECONNECT -DMYSQL_OPT_READ_TIMEOUT=MYSQL_OPT_READ_TIMEOUT -DMYSQL_OPT_WRITE_TIMEOUT=MYSQL_OPT_WRITE_TIMEOUT -DHAVE_MYSQL_SET_CHARSET
-MYSQL_LIB := -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl
-HAVE_SQLITE := yes
+HAVE_MYSQL := no
+MYSQL_INC := 
+MYSQL_LIB := 
+HAVE_SQLITE := no
 SQLITE_INC := 
-SQLITE_LIB := -lsqlite3 
+SQLITE_LIB := 
 HAVE_SPANDSP := no
 SPANDSP_INC := 
 SPANDSP_LIB := -lspandsp
-HAVE_OPENSSL := yes
+HAVE_OPENSSL := no
 OPENSSL_INC := 
-OPENSSL_LIB := -lssl -lcrypto 
-HAVE_ZLIB := yes
-ZLIB_INC := -I/usr/include
-ZLIB_LIB := -lz
-HAVE_LIBUSB := yes
-LIBUSB_INC := -DHAVE_LIBUSB_VER -I/usr/include/libusb-1.0
-LIBUSB_LIB := -lusb-1.0
+OPENSSL_LIB := 
+HAVE_ZLIB := no
+ZLIB_INC := 
+ZLIB_LIB := 
+HAVE_LIBUSB := no
+LIBUSB_INC := 
+LIBUSB_LIB := 
 SED := sed
 DEFS :=
 INCLUDES := -I.. -I..
@@ -116,7 +116,7 @@ ifneq (yes,no)
 PROGS := $(PROGS) client/osschan.yate
 endif
 
-ifneq (yes,no)
+ifneq (no,no)
 PROGS := $(PROGS) client/alsachan.yate
 endif
 
@@ -124,7 +124,7 @@ ifneq (no,no)
 PROGS := $(PROGS) client/coreaudio.yate
 endif
 
-ifneq (yes,no)
+ifneq (no,no)
 ifeq (no,no)
 PROGS := $(PROGS) qt4/updater.yate qt4/customtable.yate qt4/customtext.yate \
 	qt4/customtree.yate qt4/widgetlist.yate qt4/clientarchive.yate
@@ -158,7 +158,7 @@ ifneq (no,no)
 PROGS := $(PROGS) h323chan.yate
 endif
 
-ifneq (yes,no)
+ifneq (no,no)
 PROGS := $(PROGS) gsmcodec.yate
 endif
 
@@ -195,12 +195,12 @@ ifeq (yes,yes)
 MALLINFO_DEF := -DHAVE_MALLINFO
 endif
 
-ifeq (yes,yes)
-COREDUMP_INC := -DHAVE_COREDUMPER -I/usr
-COREDUMP_LIB := -L/usr -lcoredumper
+ifeq (no,yes)
+COREDUMP_INC := -DHAVE_COREDUMPER 
+COREDUMP_LIB := 
 endif
 
-ifneq (yes,no)
+ifneq (no,no)
 PROGS := $(PROGS) radio/ybladerf.yate
 endif
 
@@ -252,7 +252,7 @@ install: all do-install
 	    mkdir -p "$(DESTDIR)$(moddir)/$$i" ; \
 	done; \
 	for i in $(PROGS) ; do \
-	    install -D -m 0644 "$$i" "$(DESTDIR)$(moddir)/$$i" ; \
+	    install -D  "$$i" "$(DESTDIR)$(moddir)/$$i" ; \
 	done;
 
 .PHONY: uninstall
@@ -373,18 +373,18 @@ server/lksctp.yate: EXTERNFLAGS =
 server/lksctp.yate: EXTERNLIBS = -lsctp
 
 ilbccodec.yate: ../libs/ilbc/libilbc.a
-ilbccodec.yate: LOCALFLAGS = -I/home/evilsocket/Desktop/yate/yate/libs/ilbc
+ilbccodec.yate: LOCALFLAGS = -I/evilbts/yate/libs/ilbc
 ilbccodec.yate: LOCALLIBS = -L../libs/ilbc -lilbc
 
 ilbcwebrtc.yate: ../libs/miniwebrtc/libminiwebrtc.a
-ilbcwebrtc.yate: LOCALFLAGS = -I/home/evilsocket/Desktop/yate/yate/libs/miniwebrtc/audio/coding_ilbc -I../libs/miniwebrtc/audio/common/processing -I../libs/miniwebrtc
+ilbcwebrtc.yate: LOCALFLAGS = -I/evilbts/yate/libs/miniwebrtc/audio/coding_ilbc -I../libs/miniwebrtc/audio/common/processing -I../libs/miniwebrtc
 ilbcwebrtc.yate: LOCALLIBS = -L../libs/miniwebrtc -lminiwebrtc
 
 isaccodec.yate: ../libs/miniwebrtc/libminiwebrtc.a
-isaccodec.yate: LOCALFLAGS = -I/home/evilsocket/Desktop/yate/yate/libs/miniwebrtc/audio/coding_isac/main -I../libs/miniwebrtc/audio/common/processing -I../libs/miniwebrtc
+isaccodec.yate: LOCALFLAGS = -I/evilbts/yate/libs/miniwebrtc/audio/coding_isac/main -I../libs/miniwebrtc/audio/common/processing -I../libs/miniwebrtc
 isaccodec.yate: LOCALLIBS = -L../libs/miniwebrtc -lminiwebrtc
 
-gsmcodec.yate: EXTERNFLAGS = -I/usr/include
+gsmcodec.yate: EXTERNFLAGS = 
 gsmcodec.yate: EXTERNLIBS = -lgsm
 
 speexcodec.yate: EXTERNFLAGS = 

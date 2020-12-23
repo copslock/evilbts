@@ -7,7 +7,7 @@ DESTDIR :=
 DATA := snmp_mib.conf \
 	NULL-TEAM-MIB.txt YATE-MIB.txt
 
-ifneq (yes,no)
+ifneq (no,no)
 DATA := $(DATA) hostedx115.rbf hostedx40.rbf
 endif
 

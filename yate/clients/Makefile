@@ -10,11 +10,11 @@ DEBUG :=
 CXX := g++ -Wall
 SED := sed
 DEFS :=
-MOC := /usr/bin/moc-qt4
-QT4_INC := -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtUiTools -I/usr/include/qt4 -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I/usr/include/qt4/QtCore 
-QT4_LIB := -lQtUiTools -lQtGui -lQtXml -lQtCore 
-QT4_INC_NET := -I/usr/include/qt4/QtNetwork
-QT4_LIB_NET := -lQtNetwork
+MOC := 
+QT4_INC := 
+QT4_LIB := 
+QT4_INC_NET := 
+QT4_LIB_NET := 
 QT4_CLIENT_DEPS := ../libyateqt4.so
 QT4_CLIENT_LIBS := -lyateqt4
 LIBTHR:= -lpthread
@@ -31,7 +31,7 @@ LIBS :=
 MENUFILES :=
 DESKFILES :=
 
-ifneq (yes,no)
+ifneq (no,no)
 SUBDIRS := $(SUBDIRS) qt4
 PROGS := $(PROGS) yate-qt4
 MENUFILES := $(MENUFILES) yate-qt4.menu
@@ -57,8 +57,8 @@ EXTERNLIBS =
 COMPILE = $(CXX) $(DEFS) $(DEBUG) $(INCLUDES) $(CFLAGS)
 LINK = $(CXX) $(LDFLAGS)
 
-ifneq (x040806,x)
-DEFS := $(DEFS) -DQT4_VER=040806
+ifneq (x,x)
+DEFS := $(DEFS) -DQT4_VER=
 endif
 
 prefix = /usr/local

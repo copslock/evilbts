@@ -9,7 +9,7 @@ DEBUG :=
 
 YATE_VERSION := 5.5.1
 YATE_RELEASE := devel1
-YATE_REVISION:= 6107
+YATE_REVISION:= 
 
 CXX := g++ -Wall
 SED := sed
@@ -75,8 +75,8 @@ DOCGEN_K :=  -C ./docs/doc-filter.sh -d docs/api/ $(DOCGEN_F)
 DOCGEN := $(DOCGEN_K)
 APIDOCS := apidocs
 endif
-ifneq (_/usr/bin/doxygen,_)
-DOCGEN_D := (cat docs/Doxyfile; echo 'INPUT = $(DOCGEN_F)') | /usr/bin/doxygen -
+ifneq (_,_)
+DOCGEN_D := (cat docs/Doxyfile; echo 'INPUT = $(DOCGEN_F)') |  -
 DOCGEN := $(DOCGEN_D)
 APIDOCS := apidocs
 endif
@@ -115,7 +115,7 @@ check-root:
 	@test `id -u` = '0' || (echo "You must run this command as root"; exit 1)
 
 check-ldconfig:
-	@test "x/usr/lib/x86_64-linux-gnu" = "x$(libdir)" || \
+	@test "x/usr/lib" = "x$(libdir)" || \
 	    grep -l -R "^$(libdir)$$" /etc/ld.so.conf* >/dev/null 2>&1 || \
 	    echo "Add manually $(libdir) to /etc/ld.so.conf and run ldconfig (as root)"
 
@@ -217,7 +217,7 @@ install-noconf: all
 		f=`readlink "$$i"` ; \
 		ln -sf "$$f" "$(DESTDIR)$(libdir)/$$i" ; \
 	    else \
-		install -m 0644 $$i "$(DESTDIR)$(libdir)/" ; \
+		install  $$i "$(DESTDIR)$(libdir)/" ; \
 	    fi \
 	done
 	@mkdir -p "$(DESTDIR)$(bindir)/" && \
